@@ -12,7 +12,4 @@
 
 ![red](https://github.com/user-attachments/assets/f3da2846-283b-4ccb-8cb0-e82b1cf06965)
 
-
-
-<div align="center"><h2 style="text-align: center;">Скачать последние версии AmneziaWG для ПК и телефона можно в репозитории </h2>
-
+<div align="center"><h2 style="text-align: center;">Скачать последние версии AmneziaWG для ПК и телефона можно в репозитории (раздел "Releases") </h2>  

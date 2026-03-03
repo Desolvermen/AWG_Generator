@@ -24,7 +24,7 @@
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             width: 100%;
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
@@ -48,9 +48,99 @@
         .subtitle {
             text-align: center;
             margin-bottom: 30px;
-            color: #6ad500;
+            color: #FF0000;
             font-weight: bold;
             font-size: 1.1rem;
+        }
+
+        .country-selector {
+            margin: 25px 0;
+            text-align: center;
+        }
+
+        .country-title {
+            color: #667eea;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .country-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 12px;
+        }
+
+        .country-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            
+            background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            color: #6ad500;
+            padding: 12px 24px;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            font-size: 1rem;
+            min-width: 140px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5), 0 2px 5px rgba(255, 255, 255, 0.1) inset;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .country-btn.rus-btn {
+            min-width: 280px;
+            padding: 14px 32px;
+            font-size: 1.1rem;
+            background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            color: #6ad500;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6), 0 2px 5px rgba(255, 255, 255, 0.1) inset;
+        }
+
+        .country-btn.rus-btn:hover, .country-btn:hover {
+            background: linear-gradient(145deg, #353535, #252525);
+            border-bottom: 2px solid rgba(106, 213, 0, 0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.7), 0 2px 8px rgba(106, 213, 0, 0.3) inset;
+        }
+
+        .country-btn.rus-btn.active, .country-btn.active {
+            background: linear-gradient(145deg, #2a3a1a, #1a2a0a);
+            border: 1px solid rgba(106, 213, 0, 0.5);
+            border-bottom: 3px solid #6ad500;
+            color: #e0e0e0;
+            box-shadow: 0 8px 20px rgba(106, 213, 0, 0.3), 0 2px 5px rgba(255, 255, 255, 0.2) inset;
+            transform: translateY(-2px);
+        }
+
+        .country-btn:active {
+            transform: translateY(0px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .server-number {
+            font-size: 0.85rem;
+            color: #b0b0b0;
+            margin-left: 4px;
+            white-space: nowrap;
+            font-weight: bold;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2px 6px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .country-btn.active .server-number {
+            color: #d0ffa0;
+            background: rgba(106, 213, 0, 0.2);
+            border-color: rgba(106, 213, 0, 0.4);
         }
 
         .template-section {
@@ -60,14 +150,14 @@
         .file-label {
             display: block;
             margin-bottom: 10px;
-            color: #667eea;  /* цвет надписей */
+            color: #667eea;
             font-weight: bold;
             font-size: 1.1rem;
         }
 
         textarea {
             width: 100%;
-            height: 410px; /* по умолчанию для ПК */
+            height: 420px;
             background: rgba(0, 0, 0, 0.5);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 8px;
@@ -76,7 +166,7 @@
             padding: 15px;
             font-family: 'Courier New', monospace;
             font-size: 0.9rem;
-            resize: vertical; /* можно менять размер */
+            resize: vertical;
             margin-bottom: 15px;
         }
 
@@ -85,120 +175,95 @@
             border-color: #667eea;
         }
 
-        .btn {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            border: none;
+        .action-buttons {
+            display: flex;
+            gap: 12px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .action-btn, .download-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            color: #6ad500;
             padding: 14px 28px;
-            border-radius: 8px;
-            font-size: 1.1rem;
+            border-radius: 40px;
             cursor: pointer;
             transition: all 0.3s ease;
             font-weight: bold;
-            width: 100%;
-            margin-bottom: 15px;
+            font-size: 1.1rem;
+            min-width: 200px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5), 0 2px 5px rgba(255, 255, 255, 0.1) inset;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            text-decoration: none;
         }
 
-        .btn:hover:not(:disabled) {
+        .action-btn:hover, .download-link:hover {
+            background: linear-gradient(145deg, #353535, #252525);
+            border-bottom: 2px solid rgba(106, 213, 0, 0.5);
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.6), 0 2px 8px rgba(106, 213, 0, 0.3) inset;
+        }
+
+        .action-btn:active, .download-link:active {
+            transform: translateY(0px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
         }
 
         .result-section {
             margin-top: 20px;
         }
 
-        .download-link {
-            display: inline-block;
-            width: 100%;
-            text-align: center;
-            background: rgba(255, 255, 255, 0.1);
-            color: #e0e0e0;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 12px;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-weight: bold;
-        }
-
-        .download-link:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-        }
-
         .footer {
             margin-top: 30px;
             text-align: center;
             font-size: 0.9rem;
-            color: #888;
+            color: #6ad500;
         }
 
-        .button-group {
-            display: flex;
-            gap: 10px;
-            margin-top: 10px;
-        }
-        .button-group .btn {
-            margin-bottom: 0;
+        @media (max-width: 900px) {
+            .country-btn { min-width: 130px; padding: 10px 20px; font-size: 0.95rem; }
+            .country-btn.rus-btn { min-width: 260px; padding: 12px 28px; }
+            .action-btn, .download-link { min-width: 180px; padding: 12px 24px; font-size: 1rem; }
         }
 
-        /* Адаптация для планшетов и мобильных */
         @media (max-width: 768px) {
-            body {
-                padding: 10px;
-            }
-            .container {
-                padding: 20px;
-            }
-            h1 {
-                font-size: 1.8rem;
-            }
-            .subtitle {
-                font-size: 1rem;
-                margin-bottom: 20px;
-            }
-            .file-label {
-                font-size: 1rem;
-            }
-            textarea {
-                height: 350px; /* уменьшаем высоту для мобильных */
-                font-size: 0.85rem;
-                padding: 10px;
-            }
-            .btn {
-                padding: 12px 20px;
-                font-size: 1rem;
-            }
-            .footer {
-                font-size: 0.8rem;
-            }
+            body { padding: 10px; }
+            .container { padding: 20px; }
+            h1 { font-size: 1.8rem; }
+            .subtitle { font-size: 1rem; margin-bottom: 20px; }
+            .country-btn { min-width: 120px; padding: 8px 16px; font-size: 0.9rem; }
+            .country-btn.rus-btn { min-width: 240px; padding: 10px 24px; font-size: 1rem; }
+            .file-label { font-size: 1rem; }
+            textarea { height: 350px; font-size: 0.85rem; padding: 10px; }
+            .action-btn, .download-link { min-width: 160px; padding: 10px 20px; font-size: 0.95rem; }
+            .footer { font-size: 0.8rem; }
+        }
+
+        @media (max-width: 600px) {
+            .country-row { gap: 8px; }
+            .country-btn { min-width: calc(50% - 8px); flex: 1 1 auto; }
+            .country-btn.rus-btn { min-width: 100%; width: 100%; }
+            .action-buttons { flex-direction: column; align-items: center; }
+            .action-btn, .download-link { min-width: 100%; width: 100%; padding: 14px; }
         }
 
         @media (max-width: 480px) {
-            h1 {
-                font-size: 1.5rem;
-            }
-            .container {
-                padding: 15px;
-            }
-            textarea {
-                height: 300px;
-            }
-            .button-group {
-                flex-direction: column;
-                gap: 8px;
-            }
-            .btn, .download-link {
-                padding: 14px; /* более удобные для нажатия */
-            }
+            h1 { font-size: 1.5rem; }
+            .container { padding: 15px; }
+            .country-btn { min-width: 100%; padding: 14px; font-size: 1rem; }
+            .country-btn.rus-btn { min-width: 100%; padding: 16px; font-size: 1.1rem; }
+            textarea { height: 300px; }
         }
 
-        /* Для очень маленьких экранов */
         @media (max-width: 360px) {
-            textarea {
-                height: 250px;
-            }
+            textarea { height: 250px; }
         }
     </style>
 </head>
@@ -206,6 +271,28 @@
     <div class="container">
         <h1>⚡ Генератор конфигураций для AmneziaWG ⚡</h1>
         <p class="subtitle">Клиент должен поддерживать протокол AmneziaWG 1.5 или выше!!!</p>
+
+        <div class="country-selector">
+            <div class="country-title">🌍 Сгенерировать конфигурацию для:</div>
+            
+            <div class="country-row">
+                <button class="country-btn rus-btn active" data-endpoint="engage.cloudflareclient.com">Россия - стандартный сервер</button>
+            </div>
+            
+            <div class="country-row">
+                <button class="country-btn" data-endpoint="nl.tribukvy.ltd">Нидерланды <span class="server-number">1</span></button>
+                <button class="country-btn" data-endpoint="nl0.tribukvy.ltd">Нидерланды <span class="server-number">2</span></button>
+                <button class="country-btn" data-endpoint="nl2.tribukvy.ltd">Нидерланды <span class="server-number">3</span></button>
+                <button class="country-btn" data-endpoint="nl3.tribukvy.ltd">Нидерланды <span class="server-number">4</span></button>
+            </div>
+            
+            <div class="country-row">
+                <button class="country-btn" data-endpoint="de.tribukvy.ltd">Германия</button>
+                <button class="country-btn" data-endpoint="fi.tribukvy.ltd">Финляндия <span class="server-number">1</span></button>
+                <button class="country-btn" data-endpoint="fi0.tribukvy.ltd">Финляндия <span class="server-number">2</span></button>
+                <button class="country-btn" data-endpoint="lt.tribukvy.ltd">Литва</button>
+            </div>
+        </div>
 
         <div class="template-section">
             <label class="file-label">📝 Шаблон конфигурации (можно редактировать):</label>
@@ -235,26 +322,27 @@ AllowedIPs = 0.0.0.0/0, ::/0
 Endpoint = engage.cloudflareclient.com:2408</textarea>
         </div>
 
-        <button class="btn" id="generateBtn">🎲 Сгенерировать конфигурацию</button>
+        <div class="action-buttons">
+            <button class="action-btn" id="generateBtn">🎲 Сгенерировать конфигурацию</button>
+            <button class="action-btn" id="copyResultBtn">📋 Копировать</button>
+            <a href="#" id="downloadLink" class="download-link" style="display: none;">⬇️ Скачать</a>
+        </div>
 
         <div class="result-section">
             <label class="file-label">✅ Сгенерированная конфигурация (предпросмотр):</label>
             <textarea id="resultConfig" readonly style="height:600px; background: rgba(0,0,0,0.3);"></textarea>
-            <div class="button-group">
-                <button class="btn" id="copyResultBtn" style="background: #444;">📋 Копировать</button>
-                <a href="#" id="downloadLink" class="download-link" style="display: none;">⬇️ Скачать</a>
-            </div>
         </div>
 
         <div class="footer">
-            <p>Всего доступно: I1: <span id="countI1">0</span>, I2: <span id="countI2">0</span>, I3: <span id="countI3">0</span>, I4: <span id="countI4">0</span>, I5: <span id="countI5">0</span> | PrivateKey: <span id="countPK">30</span></p>
+            <p>Всего доступно: I1: <span id="countI1">0</span>, I2: <span id="countI2">0</span>, I3: <span id="countI3">0</span>, I4: <span id="countI4">0</span>, I5: <span id="countI5">0</span> | PrivateKey: <span id="countPK">50</span></p>
         </div>
     </div>
 
     <script>
         // ========== ВСТРОЕННЫЕ ДАННЫЕ (200 пакетов) ==========
+        // Здесь должен быть ваш полный объект embeddedPackets
         const embeddedPackets = {
-            "I1_c1": "<b 0x5245474953544552207369703a676f6f676c652e636f6d205349502f322e300d0a5669613a205349502f322e302f554450203139322e3136382e322e34343a353036303b6272616e63683d7a39684734624b3861653037633839613539393664383765663066613865660d0a4d61782d466f7277617264733a2037300d0a546f3a203c7369703a7573657240676f6f676c652e636f6d3e0d0a46726f6d3a203c7369703a7573657240676f6f676c652e636f6d3e3b7461673d663834326539346239393464366365310d0a43616c6c2d49443a2065323633356164653733356633356536396334663732363938643162613665630d0a435365713a20312052454749535445520d0a436f6e746163743a203c7369703a75736572403139322e3136382e3134332e31323a353036303e0d0a557365722d4167656e743a205a657068797220322e302e300d0a457870697265733a20343833340d0a436f6e74656e742d4c656e6774683a20300d0a0d0a>",
+			"I1_c1": "<b 0x5245474953544552207369703a676f6f676c652e636f6d205349502f322e300d0a5669613a205349502f322e302f554450203139322e3136382e322e34343a353036303b6272616e63683d7a39684734624b3861653037633839613539393664383765663066613865660d0a4d61782d466f7277617264733a2037300d0a546f3a203c7369703a7573657240676f6f676c652e636f6d3e0d0a46726f6d3a203c7369703a7573657240676f6f676c652e636f6d3e3b7461673d663834326539346239393464366365310d0a43616c6c2d49443a2065323633356164653733356633356536396334663732363938643162613665630d0a435365713a20312052454749535445520d0a436f6e746163743a203c7369703a75736572403139322e3136382e3134332e31323a353036303e0d0a557365722d4167656e743a205a657068797220322e302e300d0a457870697265733a20343833340d0a436f6e74656e742d4c656e6774683a20300d0a0d0a>",
             "I2_c1": "<b 0x160303005e0100005a030371c980e3bcb0bc9197e00a73e45913e5b24b7a5207411b4e3a9138ff7da55a5d000002c02b0100002f0000001400001200000f6d61696c2e676f6f676c652e636f6d000b000403000102000a000a0008e0a73a6222c0e2f4>",
             "I3_c1": "<b 0x16030300300200002c0303646acaf7f51bcdd0ac7f8d9ac66760a7b7348b64a07671e2b1f74cfa7b6f9b48045787778c1301000000>",
             "I4_c1": "<b 0x100000807787ac4126988cacfafdd85a8c791aecdb0d32fe00880ebc2f5cda27314711bd6961f9eb947ca1462c9e5ffc5d8977bbb29c6fe48f4be710d109e494a3f7f7788d66f05946a3d59d613b8b24c62223f90b58afa467153883dda852137e99bb334e0085a9b05c4cc0945a2d0cc854c88e7422665b594489ab3c3114dbee57a7e214030300010116030300347e800937a84d4d6b68f7d89a65605a16a573cb3d470e0cccca0b17e328951c8209809ff5135c3e32a1493c5a81139612c7086118>",
@@ -1256,55 +1344,77 @@ Endpoint = engage.cloudflareclient.com:2408</textarea>
 			"I5_c200": "<b 0x17030301a5504f5354202f70686f746f7320485454502f312e310d0a486f73743a207777772e676f6f676c652e636f6d0d0a557365722d4167656e743a204d6f7a696c6c612f352e30202857696e646f7773204e542031302e303b2057696e36343b2078363429204170706c655765624b69742f3533372e333620284b48544d4c2c206c696b65204765636b6f29204368726f6d652f39312e302e343437322e313234205361666172692f3533372e33360d0a4163636570743a20746578742f68746d6c2c6170706c69636174696f6e2f7868746d6c2b786d6c2c6170706c69636174696f6e2f786d6c3b713d302e392c696d6167652f776562702c2a2f2a3b713d302e380d0a4163636570742d4c616e67756167653a20656e2d55532c656e3b713d302e350d0a4163636570742d456e636f64696e673a20677a69702c206465666c6174652c2062720d0a436f6e6e656374696f6e3a206b6565702d616c6976650d0a436f6e74656e742d547970653a206170706c69636174696f6e2f782d7777772d666f726d2d75726c656e636f6465640d0a436f6e74656e742d4c656e6774683a20300d0a0d0a>"
         };
 
-        // ========== МАССИВ PRIVATEKEY (30 штук) ==========
+        // ========== МАССИВ PRIVATEKEY (50 штук) ==========
         const privateKeys = [
             "IHe5qo0eRt4YcLGdTvlUgOw59L/jPJB/FLyRTn6/28Q=",
-			"KCdNO7rpZN1R4NnPNG4GArlcBw7um15kXyo7wH9vc2Q=",
-			"UyRIiWHL6Mivn0i3dq0VuAFVq80HZ7MfaF+RVzauo0U=",
-			"gIXRn7o4BxXBPkqT0ISiN6Ills4pU68siMsotkq4h2U=",
-			"UAFlF3w0BUHKUJNEUFa22kK/80l3ze5qQs8/ij2CNGM=",
-			"uJTk0DW4sWSNJAemreWOEGen4TLZp7VcaPW0Ybw/G2o=",
-			"8CGdDiFKHdZ3PIEcDhRzsarG47McuGcliVz11HlDiHQ=",
-			"OHmNRm51AKfgclGmdxIg84SvsItPJpc6sCPgI7z+7U8=",
-			"+OKSIolCUUFkw60dXHfhAfwMecauvMNCuGu53BWWcUg=",
-			"0CVbibFTokPT+rZIeuF5svgwkpBcaCAMVn9iNGzvCHs=",
-			"IFGOIpyc4xO6E9M7BYQSBP4TA0WArYtrzXdgmdfE3HI=",
-			"3RREvEnww+dA/kABKW92WuAv9pO20DV4/rtuhudjTqI=",
-			"mE8nNnIS0u9rZ5STsFVxHBkV4gioYMbnIanLO86EHUg=",
-			"obnw9qmLhzItVAAqtPkldEn2m762uaNWJQhwUe/2HzE=",
-			"TF/Zg3dgN6JMP55rgSFISKmGsEpNcyqU1mUdRVaIlp0=",
-			"OCsT9O+A4BMj702212VGxE9UIrBWYkAZVRzTZ6MckEE=",
-			"8Kc7QYk+srx2fHOfSLwYik1tt6rAmCWNy7EIKyM7aH4=",
-			"oOf1A58GQjwh2mu/ZL7bqlzPaSgp+B2/cZ+/d5QNq2I=",
-			"B4EyM8Cs8TLq0UiGTX2AKcOuZFGGIurl6ncisysMGNA=",
-			"o2TyeyONYZrXB/fPFGrmKEF1DHUE3gQj6+rZGvrz274=",
-			"//9Gfx7GjkdQDG7r6yAo2FW1Pemn2i9+oiwojKU+LwM=",
-			"Edj+mXFBhv26I26dJOytnHwx7GVqREawM3a7CwAHwt4=",
-			"aiqKQPY9T5XllVTVhEy6cpJkj7OhUWX0yAYw1EJiXs0=",
-			"6Y8S9nrrAhCObZ7k2+CvA5R016mS2jYhb3f31xu72sM=",
-			"UZfFLMfJj0OSE5rQwCdu15T7lHsETDPQTPY6zoNTnyE=",
-			"Jy2uCBMisVsKhKU2pI40tdJ0oW/S6ySaYJZH3HWbjcU=",
-			"w4ZjQU4JGC5PQcXOepO4WRC38QPX6F4U+5ASmHwzSDA=",
-			"a9xUMCmX8bxc9RYh2Asx9gBLLTGpOItyU5oLC4bW5V4=",
-			"um3xHukg8BWYltFgiCeM0a9ClmwOLwqKVqlex/RItHc=",
-			"o0kdP5dJbBIk9MbkqlpHu98AJA1l2nR/PQ9rriuxF9s="
+            "KCdNO7rpZN1R4NnPNG4GArlcBw7um15kXyo7wH9vc2Q=",
+            "UyRIiWHL6Mivn0i3dq0VuAFVq80HZ7MfaF+RVzauo0U=",
+            "gIXRn7o4BxXBPkqT0ISiN6Ills4pU68siMsotkq4h2U=",
+            "UAFlF3w0BUHKUJNEUFa22kK/80l3ze5qQs8/ij2CNGM=",
+            "uJTk0DW4sWSNJAemreWOEGen4TLZp7VcaPW0Ybw/G2o=",
+            "8CGdDiFKHdZ3PIEcDhRzsarG47McuGcliVz11HlDiHQ=",
+            "OHmNRm51AKfgclGmdxIg84SvsItPJpc6sCPgI7z+7U8=",
+            "+OKSIolCUUFkw60dXHfhAfwMecauvMNCuGu53BWWcUg=",
+            "0CVbibFTokPT+rZIeuF5svgwkpBcaCAMVn9iNGzvCHs=",
+            "IFGOIpyc4xO6E9M7BYQSBP4TA0WArYtrzXdgmdfE3HI=",
+            "3RREvEnww+dA/kABKW92WuAv9pO20DV4/rtuhudjTqI=",
+            "mE8nNnIS0u9rZ5STsFVxHBkV4gioYMbnIanLO86EHUg=",
+            "obnw9qmLhzItVAAqtPkldEn2m762uaNWJQhwUe/2HzE=",
+            "TF/Zg3dgN6JMP55rgSFISKmGsEpNcyqU1mUdRVaIlp0=",
+            "OCsT9O+A4BMj702212VGxE9UIrBWYkAZVRzTZ6MckEE=",
+            "8Kc7QYk+srx2fHOfSLwYik1tt6rAmCWNy7EIKyM7aH4=",
+            "oOf1A58GQjwh2mu/ZL7bqlzPaSgp+B2/cZ+/d5QNq2I=",
+            "B4EyM8Cs8TLq0UiGTX2AKcOuZFGGIurl6ncisysMGNA=",
+            "o2TyeyONYZrXB/fPFGrmKEF1DHUE3gQj6+rZGvrz274=",
+            "//9Gfx7GjkdQDG7r6yAo2FW1Pemn2i9+oiwojKU+LwM=",
+            "Edj+mXFBhv26I26dJOytnHwx7GVqREawM3a7CwAHwt4=",
+            "aiqKQPY9T5XllVTVhEy6cpJkj7OhUWX0yAYw1EJiXs0=",
+            "6Y8S9nrrAhCObZ7k2+CvA5R016mS2jYhb3f31xu72sM=",
+            "UZfFLMfJj0OSE5rQwCdu15T7lHsETDPQTPY6zoNTnyE=",
+            "Jy2uCBMisVsKhKU2pI40tdJ0oW/S6ySaYJZH3HWbjcU=",
+            "w4ZjQU4JGC5PQcXOepO4WRC38QPX6F4U+5ASmHwzSDA=",
+            "a9xUMCmX8bxc9RYh2Asx9gBLLTGpOItyU5oLC4bW5V4=",
+            "um3xHukg8BWYltFgiCeM0a9ClmwOLwqKVqlex/RItHc=",
+            "o0kdP5dJbBIk9MbkqlpHu98AJA1l2nR/PQ9rriuxF9s=",
+			"FcQLwJJ3rD36HGsbH10PbbS8fnFTi/q9rW2Frz/sfoo=",
+			"YEwgUjBFXOh8miDFHko/O4pzVuBbAGjJg3eqzHR7X68=",
+			"M+vWu8LKFq5uvIrD3RAUARONkPyCFn1+uSoRCrWYOD4=",
+			"ApyYnsmnHD92nQSt9/hEW0EtwwFh1J59Ufm5SoM7eoQ=",
+			"Pr0HtFTe+Gyelo68rc4AHZhFMBuAoJSo2AaWsMmh2ug=",
+			"WYObSHfDyVgdJYr4BM0rcHdadjF1mnhCwE03ilXgk8E=",
+			"eptvHxHhxSdpJXa0rLyCYR2ocya3vIZDpAfSD2cQmwI=",
+			"VPE13gCG82zKrJthHm5erJqV1d9Qh8wTfw0mmKFh8Rg=",
+			"iAlbf+LKGlComwCvBND8Kp/pwHXlwA2kZYDxDVQDb0Y=",
+			"WQ77pMaJsMheNU8lUNaZoRhAILynFWlCLCp2LU4ThPw=",
+			"RUkk3ydOSDEjQUim7N7ch6gmcVw36RDAJwFkE462/Y4=",
+			"HBUSkw2UiFg3pea/MzBVLjFgsF/rM3HeoABGRUSy1gM=",
+			"mcIluWvV9Z4QhIUSwpIbJ6ZzheZ1KVNEqwmM3a0kZyI=",
+			"dHQBBe2OciG36M4OlrBArJhTJLX9Saklv57t3r7QfQo=",
+			"Xe1ZtLVpEx810mgTgVOHCsbrpVuzYghIIz1UMkKjAhw=",
+			"T7jPkTmqIOKLO6y2xyVam+jiWBLdaGsV2sVyJ52a84w=",
+			"BQYyi5Hw2TaslNDltyJ8xHDksYoqsJVHMzfR+B6Dxks=",
+			"d60ZSpYzsNnyXUxcoRmimvuJUb4RXq0jsCR/Rr6FeNM=",
+			"XKgnh4PBPjnZWxXG7PiMpoDNVP7SVXwIw8F11RnmzWE=",
+			"nsOhgMzHaVAjzPK6pzw4mYFbhcyfQFpCNrICVSelFdE="
+			
         ];
 
-        // ========== КОД ГЕНЕРАЦИИ ==========
+        // ========== ПЕРЕМЕННЫЕ ==========
         let allPackets = { I1: [], I2: [], I3: [], I4: [], I5: [] };
         let selectedValues = {};
+        let currentEndpoint = 'engage.cloudflareclient.com:2408'; // по умолчанию
 
         // Собираем пакеты по индексам
         for (const [key, value] of Object.entries(embeddedPackets)) {
             if (key.startsWith('I') && key.includes('_c')) {
-                const idx = key[1]; // '1'..'5'
+                const idx = key[1];
                 if (idx >= '1' && idx <= '5') {
                     allPackets[`I${idx}`].push(value);
                 }
             }
         }
 
-        // Обновляем счётчики на странице
+        // Обновляем счётчики
         document.getElementById('countI1').textContent = allPackets.I1.length;
         document.getElementById('countI2').textContent = allPackets.I2.length;
         document.getElementById('countI3').textContent = allPackets.I3.length;
@@ -1312,12 +1422,46 @@ Endpoint = engage.cloudflareclient.com:2408</textarea>
         document.getElementById('countI5').textContent = allPackets.I5.length;
         document.getElementById('countPK').textContent = privateKeys.length;
 
+        // Элементы DOM
         const generateBtn = document.getElementById('generateBtn');
         const copyResultBtn = document.getElementById('copyResultBtn');
         const downloadLink = document.getElementById('downloadLink');
         const configTemplate = document.getElementById('configTemplate');
         const resultConfig = document.getElementById('resultConfig');
+        const countryButtons = document.querySelectorAll('.country-btn');
 
+        // Функция обновления шаблона с новым Endpoint
+        function updateTemplateWithEndpoint(endpoint) {
+            const templateLines = configTemplate.value.split('\n');
+            for (let i = 0; i < templateLines.length; i++) {
+                if (templateLines[i].startsWith('Endpoint =')) {
+                    templateLines[i] = `Endpoint = ${endpoint}`;
+                    break;
+                }
+            }
+            configTemplate.value = templateLines.join('\n');
+        }
+
+        // Обработчики для кнопок выбора страны
+        countryButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Убираем активный класс у всех кнопок
+                countryButtons.forEach(b => b.classList.remove('active'));
+                // Добавляем активный класс текущей кнопке
+                this.classList.add('active');
+                
+                // Формируем Endpoint с портом 2408
+                const endpoint = this.dataset.endpoint;
+                currentEndpoint = `${endpoint}:2408`;
+                
+                // Обновляем шаблон
+                updateTemplateWithEndpoint(currentEndpoint);
+            });
+        });
+
+        // Россия активна по умолчанию (класс active есть в HTML)
+
+        // Функция выбора случайных значений
         function selectRandomValues() {
             selectedValues.PrivateKey = privateKeys[Math.floor(Math.random() * privateKeys.length)];
             for (let i = 1; i <= 5; i++) {
@@ -1327,7 +1471,9 @@ Endpoint = engage.cloudflareclient.com:2408</textarea>
             }
         }
 
+        // Основная функция генерации
         generateBtn.addEventListener('click', function() {
+            // Проверка наличия данных
             for (let i = 1; i <= 5; i++) {
                 const key = `I${i}`;
                 if (!allPackets[key] || allPackets[key].length === 0) {
@@ -1340,25 +1486,33 @@ Endpoint = engage.cloudflareclient.com:2408</textarea>
                 return;
             }
 
+            // Выбираем случайные значения
             selectRandomValues();
 
+            // Получаем шаблон и заменяем плейсхолдеры
             let template = configTemplate.value;
+            
+            // Заменяем PrivateKey
             template = template.replace('{{PrivateKey}}', selectedValues.PrivateKey);
+            
+            // Заменяем I1..I5
             for (let i = 1; i <= 5; i++) {
                 const key = `I${i}`;
                 template = template.replace(new RegExp(`\\{\\{${key}\\}\\}`, 'g'), selectedValues[key]);
             }
 
+            // Показываем результат
             resultConfig.value = template;
 
+            // Создаём ссылку для скачивания
             const blob = new Blob([template], { type: 'text/plain' });
             const url = URL.createObjectURL(blob);
             downloadLink.href = url;
             downloadLink.download = 'amneziawg.conf';
-            downloadLink.style.display = 'block';
-            downloadLink.textContent = '⬇️ Скачать amneziawg.conf';
+            downloadLink.style.display = 'inline-flex'; // Показываем ссылку
         });
 
+        // Копирование в буфер
         copyResultBtn.addEventListener('click', function() {
             if (resultConfig.value) {
                 navigator.clipboard.writeText(resultConfig.value).then(() => {
